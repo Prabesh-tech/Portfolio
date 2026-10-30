@@ -516,8 +516,9 @@ function initDraggableBadge() {
       anchorScreenY = navbar?.getBoundingClientRect().bottom ?? 0;
       anchorY = anchorScreenY - stageRect.top;
     }
-    rope.style.visibility = pointerId !== null || Math.abs(x) > 1 || Math.abs(y) > 1 ||
-      stageRect.bottom > 0 && stageRect.top < window.innerHeight ? "visible" : "hidden";
+    const stageIsVisible = stageRect.bottom > 0 && stageRect.top < window.innerHeight;
+    rope.style.visibility = pointerId !== null || returning || Math.abs(x) > 14 || Math.abs(y) > 14 ||
+      window.innerWidth > 560 || stageIsVisible ? "visible" : "hidden";
     if (pointerId === null) {
       const bounds = currentBounds;
       x = Math.max(bounds.minX, Math.min(bounds.maxX, x));
