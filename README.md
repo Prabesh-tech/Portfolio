@@ -1,6 +1,6 @@
 # Prabesh Kafle — Portfolio
 
-A static, no-build personal portfolio. It can be previewed with VS Code Live Server or any local HTTP server.
+A static, no-build personal portfolio website built with HTML, CSS, and JavaScript. It can be previewed with VS Code Live Server or any local HTTP server.
 
 The visual theme uses jet black (`#0A0A0A`), cerulean blue (`#007BA7`), and neon rose (`#FF2D95`) based on the provided color reference. The animated background layers include aurora blobs, a perspective grid, floating code symbols, a cursor spotlight, grain, and a lightweight particle network that pauses when the page is hidden and respects reduced-motion settings.
 
@@ -13,9 +13,9 @@ Open `index.html` with Live Server, or run `python -m http.server 5500` from thi
 - Replace `YOUR_FORMSPREE_ID` in the contact form action in `index.html` with the form ID from your Formspree account. Until configured, the form reports that messages cannot be delivered and directs visitors to email.
 - Add your real CV at `assets/cv/Prabesh_Kafle_CV.pdf`, then replace the disabled “CV coming soon” label in the hero with a download link.
 - Check the existing contact details and social profile URLs in `index.html`.
-- Add only real project descriptions, screenshots, and demo/repository links. The current featured project is this portfolio.
+- Keep project descriptions and links accurate; the two concept projects are explicitly labeled. The portfolio currently displays nine project cards.
 - Replace `image/image1.jpg` with your preferred profile photo if needed. The Open Graph preview at `assets/img/social-preview.jpg` is already sized to 1200 × 630.
-- Add your school or institution name if you want it shown in the education section. Unsupported experience and project statistics were intentionally left out.
+- Add your school or institution name if you want it shown in the education section. Confirm experience statistics are accurate before publishing.
 - Confirm availability, email, phone, title, and canonical domain are still correct.
 
 ## Media optimization
