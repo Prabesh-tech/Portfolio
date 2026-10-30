@@ -517,7 +517,7 @@ function initDraggableBadge() {
       anchorY = anchorScreenY - stageRect.top;
     }
     rope.style.visibility = pointerId !== null || Math.abs(x) > 1 || Math.abs(y) > 1 ||
-      stageRect.bottom > anchorScreenY && stageRect.top < window.innerHeight ? "visible" : "hidden";
+      stageRect.bottom > 0 && stageRect.top < window.innerHeight ? "visible" : "hidden";
     if (pointerId === null) {
       const bounds = currentBounds;
       x = Math.max(bounds.minX, Math.min(bounds.maxX, x));
