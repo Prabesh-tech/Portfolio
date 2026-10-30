@@ -6017,7 +6017,7 @@ textarea:focus-visible {
 .quick-contact {
   position: fixed;
   right: 1.5rem;
-  bottom: calc(1.5rem + 48px + 0.5rem);
+  bottom: 1.5rem;
   z-index: 1001;
   display: flex;
   flex-direction: column;
@@ -6089,7 +6089,7 @@ textarea:focus-visible {
 @media (max-width: 600px) {
   .quick-contact {
     right: 0.85rem;
-    bottom: calc(1.5rem + 48px + 0.5rem + env(safe-area-inset-bottom, 0px));
+    bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
     gap: 0.5rem;
   }
 
@@ -6534,10 +6534,10 @@ textarea:focus-visible {
 }
 
 .back-to-top {
-  position: fixed;
-  z-index: 10003;
-  right: 1.5rem;
-  bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+  right: auto;
+  bottom: auto;
   display: inline-flex;
   width: 54px;
   min-width: 54px;
@@ -6570,8 +6570,6 @@ textarea:focus-visible {
 
 @media (max-width: 600px) {
   .back-to-top {
-    right: 0.85rem;
-    bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
     width: 48px;
     min-width: 48px;
     height: 48px;
