@@ -1,600 +1,414 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prabesh | Frontend Developer Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
-  <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="Prabesh Kafle is a frontend developer and UI/UX designer in Kathmandu, Nepal, creating thoughtful and responsive web experiences.">
+  <link rel="canonical" href="https://prabeshkafle.com.np/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Prabesh Kafle — Frontend Developer">
+  <meta property="og:description" content="Thoughtful, responsive web experiences by Prabesh Kafle, frontend developer and UI/UX designer in Kathmandu, Nepal.">
+  <meta property="og:url" content="https://prabeshkafle.com.np/">
+  <meta property="og:image" content="https://prabeshkafle.com.np/assets/img/social-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Prabesh Kafle — Frontend Developer and UI/UX Designer">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Prabesh Kafle — Frontend Developer">
+  <meta name="twitter:description" content="Frontend developer and UI/UX designer in Kathmandu, Nepal.">
+  <meta name="twitter:image" content="https://prabeshkafle.com.np/assets/img/social-preview.jpg">
+  <title>Prabesh Kafle — Frontend Developer &amp; UI/UX Designer</title>
+  <link rel="icon" href="assets/icons/prabesh-symbol.png" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="assets/icons/prabesh-symbol.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Prabesh Kafle",
+    "url": "https://prabeshkafle.com.np/",
+    "jobTitle": "Frontend Developer and UI/UX Designer",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kathmandu",
+      "addressCountry": "NP"
+    },
+    "sameAs": [
+      "https://github.com/Prabesh-tech",
+      "https://linkedin.com/in/prabesh-kafle45",
+      "https://discord.com/users/prabesh366_69355",
+      "https://www.instagram.com/prabesh_kafle3"
+    ]
+  }
+  </script>
+  <script src="js/main.js" defer></script>
 </head>
 <body>
-  <!-- Loading Screen -->
-  <div class="loading-screen" id="loadingScreen">
-    <div class="loader"></div>
-    <p>Loading Portfolio...</p>
-    <div class="loading-status">
-      <span>SYSTEM INITIALIZING</span>
-      <span>UI READY</span>
-      <span>PORTFOLIO 2026</span>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="loading-screen" id="loadingScreen" aria-hidden="true">
+    <div class="loader-panel">
+      <div class="loader-topline"><span class="loader-live-dot"></span><span>PORTFOLIO / INITIALIZING</span><span>2026</span></div>
+      <div class="loader-mark"><img class="loader-logo-image" src="assets/icons/prabesh-logo.png" alt="Prabesh logo" width="1500" height="570" fetchpriority="high"></div>
+      <p class="loader-name">Prabesh Kafle</p>
+      <p class="loader-caption">Crafting digital experiences</p>
+      <div class="loader-progress" aria-hidden="true"><span id="loadingProgress"></span></div>
+      <div class="loader-bottomline"><span>LOADING EXPERIENCE</span><span id="loadingPercent">00%</span></div>
     </div>
   </div>
-
-  <!-- Floating Particles -->
-  <div class="particles-container">
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
+  <div class="bg" aria-hidden="true">
+    <div class="bg__blob bg__blob--1"></div>
+    <div class="bg__blob bg__blob--2"></div>
+    <div class="bg__blob bg__blob--3"></div>
+    <div class="bg__grid"></div>
+    <canvas id="particles"></canvas>
+    <div class="bg__symbols" id="symbols"></div>
+    <div class="bg__vignette"></div>
+    <div class="bg__grain"></div>
   </div>
 
-  <!-- Navigation -->
-  <nav class="navbar" id="navbar">
-    <a href="#home" class="logo">
-      <i class="fas fa-globe"></i> Prabesh.dev
-    </a>
-    
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-      <i class="fas fa-bars"></i>
-    </button>
-    
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-      <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
-      <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
-      <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-      <li class="theme-toggle">
-        <button id="themeToggle" aria-label="Toggle theme">
-          <i class="fas fa-moon"></i>
-        </button>
-      </li>
-    </ul>
-  </nav>
+  <header>
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
+      <a href="#home" class="logo" aria-label="Prabesh, home"><img class="logo-image" src="assets/icons/prabesh-logo.png" alt=""></a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-controls="navLinks" aria-expanded="false">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="btn secondary nav-cta">Hire me</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- Main Content -->
-  <main>
-    <!-- Home Section -->
-    <section id="home" class="section">
-      <div class="content-box home-content animate-on-scroll">
+  <main id="main">
+    <section id="home" class="section" tabindex="-1">
+      <div class="content-box home-content">
         <div class="home-text">
           <div class="status-bar">
-            <span class="status-item"><i class="fas fa-circle" style="color: #00ff00;"></i> AVAILABLE FOR WORK</span>
-            <span class="status-item"><i class="fas fa-bolt"></i> PORTFOLIO 2026</span>
-            <span class="status-item"><i class="fas fa-wifi"></i> ONLINE</span>
+            <span class="status-item"><i class="fas fa-circle" aria-hidden="true"></i> Available for freelance work</span>
           </div>
-          
-          <h1 class="typing-animation">Hi, I'm <span class="highlight">Prabesh</span></h1>
-          <h2 class="slide-in-right">Frontend Developer & UI/UX Designer</h2>
-          <p class="fade-in-delay">Building modern, reliable and fast digital experiences with a focus on clean UI and solid engineering.</p>
-          
+          <p class="section-kicker">Welcome to my portfolio</p>
+          <h1 class="typing-animation"><span class="hero-intro">Hi, it's me</span> Prabesh <span class="highlight">Kafle</span></h1>
+          <h2 class="slide-in-right" aria-label="Frontend developer and UI/UX designer"><span id="roleText">Frontend Developer</span><span class="typing-cursor" aria-hidden="true">|</span></h2>
+          <p>Building modern, reliable, and fast digital experiences with a focus on clean interfaces and solid frontend engineering.</p>
           <div class="status-info">
-            <p><i class="fas fa-map-marker-alt"></i> Kathmandu, Nepal</p>
-            <p><i class="fas fa-clock"></i> Available now</p>
+            <p><i class="fas fa-location-dot" aria-hidden="true"></i> Kathmandu, Nepal</p>
+            <p><i class="fas fa-clock" aria-hidden="true"></i> Open to freelance work</p>
+            <p><i class="fas fa-code" aria-hidden="true"></i> 09 featured projects</p>
+            <p><i class="fas fa-briefcase" aria-hidden="true"></i> 2+ years experience</p>
           </div>
-          
           <div class="hero-buttons">
-            <a href="#contact" class="btn primary pulse-animation">
-              <i class="fas fa-paper-plane"></i> Hire Me
-            </a>
-            <a href="#" class="btn secondary" id="downloadCV">
-              <i class="fas fa-download"></i> Download CV
-            </a>
-            <a href="#projects" class="btn secondary">
-              <i class="fas fa-eye"></i> View Projects
-            </a>
+            <a href="#projects" class="btn primary"><i class="fas fa-arrow-down" aria-hidden="true"></i> View Projects</a>
+            <a href="#contact" class="btn secondary"><i class="fas fa-paper-plane" aria-hidden="true"></i> Contact Me</a>
+            <div class="cv-control">
+              <button class="btn secondary cv-button" id="cvToggle" type="button" aria-expanded="false" aria-controls="cvActions"><i class="fas fa-file-lines" aria-hidden="true"></i> CV</button>
+              <div class="cv-actions" id="cvActions" hidden>
+                <button class="cv-action" type="button" disabled title="CV file will be added later"><i class="fas fa-eye" aria-hidden="true"></i> View CV</button>
+                <button class="cv-action" type="button" disabled title="CV file will be added later"><i class="fas fa-download" aria-hidden="true"></i> Download CV</button>
+              </div>
+            </div>
           </div>
-          
-          <div class="social-icons">
-            <p>Connect with me:</p>
-            <a href="https://github.com/Prabesh-tech" target="_blank" aria-label="GitHub" class="social-icon">
-              <i class="fab fa-github"></i>
-            </a>
-            <a href="https://linkedin.com/in/prabesh-kafle45" target="_blank" aria-label="LinkedIn" class="social-icon">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://discord.com/users/prabesh366_69355" target="_blank" aria-label="Discord" class="social-icon">
-              <i class="fab fa-discord"></i>
-            </a>
-            <a href="https://www.instagram.com/prabesh_kafle3" target="_blank" aria-label="Instagram" class="social-icon">
-              <i class="fab fa-instagram"></i>
-            </a>
+          <div class="social-icons" aria-label="Social links">
+            <p>Find me online</p>
+            <a href="https://github.com/Prabesh-tech" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-icon"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="https://linkedin.com/in/prabesh-kafle45" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            <a href="mailto:prabeshkafle363@gmail.com" aria-label="Email Prabesh" class="social-icon"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+            <a href="https://discord.com/users/prabesh366_69355" target="_blank" rel="noopener noreferrer" aria-label="Discord" class="social-icon"><i class="fab fa-discord" aria-hidden="true"></i></a>
+            <a href="viber://chat?number=%2B9779849358446" aria-label="Chat on Viber" class="social-icon"><i class="fab fa-viber" aria-hidden="true"></i></a>
           </div>
         </div>
-        
-        <div class="home-visual">
-          <div class="circle-container">
-            <div class="main-circle">
-              <div class="center-text floating">DEV</div>
-              
-              <div class="circle-node node-1 floating-delay">
-                <span>UI/UX</span>
-                <small>Design</small>
+        <div class="home-visual" aria-hidden="true">
+          <div class="lanyard-stage">
+            <svg class="lanyard-rope" aria-hidden="true" focusable="false">
+              <defs>
+                <linearGradient id="lanyardGradient" x1="0" x2="1">
+                  <stop offset="0" stop-color="#005b7c"></stop>
+                  <stop offset="0.5" stop-color="#42c5ed"></stop>
+                  <stop offset="1" stop-color="#005b7c"></stop>
+                </linearGradient>
+              </defs>
+              <path class="lanyard-rope-shadow"></path>
+              <path class="lanyard-rope-body" stroke="url(#lanyardGradient)"></path>
+              <path class="lanyard-rope-highlight"></path>
+            </svg>
+            <article class="profile-badge">
+              <span class="badge-clip"></span>
+              <div class="badge-inner">
+                <div class="badge-top"><span>DEVELOPER CARD</span><span>PK / 01</span></div>
+                <div class="badge-photo">
+                  <img src="image/image1.jpg" alt="" width="1200" height="1600" fetchpriority="high">
+                  <span class="badge-initials">PK</span>
+                </div>
+                <p class="badge-name">Prabesh Kafle</p>
+                <p class="badge-role">Frontend Developer · UI/UX</p>
+                <div class="badge-divider"></div>
+                <div class="badge-footer">
+                  <span><i></i> Available</span>
+                  <span>Kathmandu, NP</span>
+                </div>
               </div>
-              <div class="circle-node node-2 floating-delay">
-                <span>CODE</span>
-                <small>Frontend</small>
-              </div>
-              <div class="circle-node node-3 floating-delay">
-                <span>06</span>
-                <small>Projects</small>
-              </div>
-              <div class="circle-node node-4 floating-delay">
-                <span>+2Y</span>
-                <small>Experience</small>
-              </div>
-            </div>
-            
-            <div class="outer-ring">
-              <div class="ring-symbol"><i class="fas fa-bolt"></i></div>
-              <div class="ring-symbol"><i class="fas fa-code"></i></div>
-              <div class="ring-symbol"><i class="fas fa-globe"></i></div>
-              <div class="ring-symbol"><i class="fas fa-rocket"></i></div>
-            </div>
+            </article>
+            <span class="badge-orbit badge-orbit--one"></span>
+            <span class="badge-orbit badge-orbit--two"></span>
           </div>
         </div>
       </div>
+      <a class="scroll-cue" href="#about"><span></span> Scroll to explore</a>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-      <h2 class="section-title animate-on-scroll">About Me</h2>
-      <div class="content-box about-container animate-on-scroll">
+    <section id="about" class="section" tabindex="-1" aria-labelledby="aboutTitle">
+      <p class="section-kicker">01 / About</p>
+      <h2 class="section-title" id="aboutTitle">A little about me</h2>
+      <p class="section-subtitle">A second-year computer science student focused on intuitive interfaces and polished web experiences.</p>
+      <div class="content-box about-container">
         <div class="about-image">
           <div class="image-wrapper">
-            <img src="image\image1.jpg" alt="Prabesh Kafle" class="profile-image" />
-            <div class="image-overlay">
-              <h3>Prabesh Kafle</h3>
-              <p>Frontend Developer</p>
-            </div>
+            <img class="profile-image" src="image/image1.jpg" alt="Prabesh Kafle" width="1200" height="1600" fetchpriority="high">
+            <div class="image-overlay"><h3>Prabesh Kafle</h3><p>Frontend Developer</p></div>
           </div>
         </div>
-        
         <div class="about-text">
-          <h3 class="animate-on-scroll">Creative Developer & Designer</h3>
-          <p class="animate-on-scroll">Hi! I'm Prabesh, a passionate and creative UI/UX Designer and Frontend Developer based in Kathmandu, Nepal.</p>
-          <p class="animate-on-scroll">I'm currently a second-year Computer Science student, deeply interested in designing intuitive and visually appealing user interfaces that bring ideas to life on the web.</p>
-          <p class="animate-on-scroll">I focus on modern web design, responsive layouts, and interactive user experiences that blend beauty with functionality.</p>
-          
-          <div class="skills animate-on-scroll">
-            <h4>Current Focus:</h4>
+          <h3>Creative Developer &amp; Designer</h3>
+          <p>Hi! I'm Prabesh, a creative UI/UX designer and frontend developer based in Kathmandu, Nepal.</p>
+          <p>I'm a second-year computer science student interested in designing intuitive interfaces and bringing ideas to life on the web.</p>
+          <p>I focus on modern web design, responsive layouts, and interactive user experiences that balance visual appeal with practical functionality.</p>
+          <div class="skills">
+            <h4>Current focus</h4>
             <div class="skill-tags">
-              <span class="skill-tag"><i class="fab fa-figma"></i> Figma & Adobe XD</span>
-              <span class="skill-tag"><i class="fab fa-html5"></i> HTML5 & CSS3</span>
-              <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
-              <span class="skill-tag"><i class="fab fa-react"></i> React.js</span>
-              <span class="skill-tag"><i class="fas fa-wind"></i> Tailwind CSS</span>
-              <span class="skill-tag"><i class="fas fa-mobile-alt"></i> Responsive Design</span>
+              <span class="skill-tag">Figma</span><span class="skill-tag">Adobe XD</span><span class="skill-tag">HTML &amp; CSS</span>
+              <span class="skill-tag">JavaScript</span><span class="skill-tag">React</span>
+              <span class="skill-tag">Tailwind CSS</span><span class="skill-tag">Responsive design</span>
             </div>
           </div>
-          
-          <div class="experience">
-            <div class="exp-item animate-on-scroll">
-              <h5>2+ Years</h5>
-              <p>Web Development Experience</p>
-            </div>
-            <div class="exp-item animate-on-scroll">
-              <h5>15+</h5>
-              <p>Projects Completed</p>
-            </div>
-            <div class="exp-item animate-on-scroll">
-              <h5>100%</h5>
-              <p>Client Satisfaction</p>
-            </div>
-          </div>
+          <dl class="about-details">
+            <div><dt>Location</dt><dd>Kathmandu, Nepal</dd></div>
+            <div><dt>Email</dt><dd><a href="mailto:prabeshkafle363@gmail.com">prabeshkafle363@gmail.com</a></dd></div>
+            <div><dt>Education</dt><dd>Second-year computer science student</dd></div>
+            <div><dt>Experience</dt><dd>2+ years in web development</dd></div>
+          </dl>
         </div>
       </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-      <h2 class="section-title animate-on-scroll">My Projects</h2>
-      <p class="section-subtitle animate-on-scroll">A showcase of my recent work demonstrating expertise in modern web development</p>
-      
+    <section id="skills" class="section" tabindex="-1" aria-labelledby="skillsTitle">
+      <p class="section-kicker">02 / Skills</p>
+      <h2 class="section-title" id="skillsTitle">Tools I work with</h2>
+      <p class="section-subtitle">A practical toolkit for designing and building responsive interfaces.</p>
+      <div class="skills-grid">
+        <article class="skill-group animate-on-scroll">
+          <h3><i class="fas fa-code" aria-hidden="true"></i> Frontend</h3>
+          <div class="skill-tags"><span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">JavaScript</span><span class="skill-tag">React</span><span class="skill-tag">Tailwind CSS</span></div>
+        </article>
+        <article class="skill-group animate-on-scroll">
+          <h3><i class="fas fa-pen-ruler" aria-hidden="true"></i> Design</h3>
+          <div class="skill-tags"><span class="skill-tag">Figma</span><span class="skill-tag">Adobe XD</span><span class="skill-tag">UI/UX</span><span class="skill-tag">Responsive design</span></div>
+        </article>
+        <article class="skill-group animate-on-scroll">
+          <h3><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i> Workflow</h3>
+          <div class="skill-tags"><span class="skill-tag">Git</span><span class="skill-tag">VS Code</span><span class="skill-tag">REST APIs</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="section" tabindex="-1" aria-labelledby="experienceTitle">
+      <p class="section-kicker">03 / Education</p>
+      <h2 class="section-title" id="experienceTitle">Learning by building</h2>
+      <p class="section-subtitle">My current focus is growing my computer science fundamentals and applying them to the web.</p>
+      <div class="timeline">
+        <article class="timeline-item animate-on-scroll">
+          <span class="timeline-item__date">Currently studying</span>
+          <h3>Computer Science</h3>
+          <p>Exploring web technologies, interface design, and software development as part of my ongoing studies.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="section" tabindex="-1" aria-labelledby="projectsTitle">
+      <p class="section-kicker">04 / Selected work</p>
+      <h2 class="section-title" id="projectsTitle">Selected projects</h2>
+      <p class="section-subtitle">A selection of web projects spanning frontend, full-stack, and interface design.</p>
       <div class="projects-grid">
-        <!-- Project 1 -->
-        <div class="project-card animate-on-scroll">
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="E-Commerce Website" />
-            <div class="project-overlay">
-              <span class="project-tag">Full Stack</span>
-              <span class="project-tag">React</span>
+        <article class="project-card animate-on-scroll" data-category="fullstack frontend">
+          <div class="project-preview" aria-hidden="true"><span><i class="fas fa-notes-medical" aria-hidden="true"></i> MediYatra / Patient coordination</span></div>
+          <div class="project-content">
+            <span class="project-tag">Healthcare coordination platform</span>
+            <h3>MediYatra</h3>
+            <p>A medical-travel coordination platform supporting patients journeying from Nepal to India, with patient inquiries, private report uploads, and appointment requests.</p>
+            <div class="project-tech"><span>Next.js</span><span>NestJS</span><span>TypeScript</span><span>PostgreSQL</span></div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/Prabesh-tech/MediYatra/tree/main/medibridge" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> View project</a>
             </div>
           </div>
+        </article>
+        <article class="project-card animate-on-scroll" data-category="frontend uiux">
+          <div class="project-preview" aria-hidden="true"><span>Personal / Portfolio</span></div>
           <div class="project-content">
+            <span class="project-tag">Personal project</span>
+            <h3>Personal Portfolio</h3>
+            <p>A responsive portfolio presenting my work, design interests, and frontend skills.</p>
+            <div class="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/Prabesh-tech/Personal-portfolio-Animated" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> Source</a>
+              <a class="project-link" href="https://prabeshkafle.com.np" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Live site</a>
+            </div>
+          </div>
+        </article>
+        <article class="project-card animate-on-scroll" data-category="frontend fullstack">
+          <div class="project-preview" aria-hidden="true"><span><i class="fas fa-bag-shopping" aria-hidden="true"></i> E-commerce / Store</span></div>
+          <div class="project-content">
+            <span class="project-tag">Full-stack commerce</span>
             <h3>Modern E-Commerce Platform</h3>
-            <p>Complete online store with product filtering, cart, user authentication, and secure payment integration.</p>
-            <div class="project-tech">
-              <span>React</span>
-              <span>Node.js</span>
-              <span>MongoDB</span>
-              <span>Stripe</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
-              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            </div>
+            <p>A complete online store with product filtering, a shopping cart, user authentication, and secure payment integration.</p>
+            <div class="project-tech"><span>React</span><span>Node.js</span><span>MongoDB</span><span>Stripe</span></div>
           </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project-card animate-on-scroll">
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Finance Dashboard" />
-            <div class="project-overlay">
-              <span class="project-tag">Dashboard</span>
-              <span class="project-tag">Real-time</span>
-            </div>
-          </div>
+        </article>
+        <article class="project-card animate-on-scroll" data-category="frontend fullstack">
+          <div class="project-preview" aria-hidden="true"><span><i class="fas fa-chart-line" aria-hidden="true"></i> Analytics / Dashboard</span></div>
           <div class="project-content">
+            <span class="project-tag">Data visualization</span>
             <h3>Financial Analytics Dashboard</h3>
-            <p>Interactive dashboard for financial data visualization with real-time updates and customizable charts.</p>
-            <div class="project-tech">
-              <span>Vue.js</span>
-              <span>Chart.js</span>
-              <span>Firebase</span>
-              <span>API</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
-              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            </div>
+            <p>An interactive dashboard for financial data visualization, real-time updates, and customizable charts.</p>
+            <div class="project-tech"><span>Vue.js</span><span>Chart.js</span><span>Firebase</span><span>API</span></div>
           </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-card animate-on-scroll">
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Weather App" />
-            <div class="project-overlay">
-              <span class="project-tag">Mobile</span>
-              <span class="project-tag">API</span>
-            </div>
-          </div>
+        </article>
+        <article class="project-card animate-on-scroll" data-category="frontend">
+          <div class="project-preview" aria-hidden="true"><span><i class="fas fa-cloud-sun" aria-hidden="true"></i> Weather / Forecast</span></div>
           <div class="project-content">
+            <span class="project-tag">Weather application</span>
             <h3>Weather Forecast App</h3>
-            <p>Responsive weather application with location detection, 7-day forecast, and weather alerts.</p>
-            <div class="project-tech">
-              <span>JavaScript</span>
-              <span>OpenWeather API</span>
-              <span>CSS3</span>
-              <span>PWA</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
-              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            </div>
+            <p>A responsive weather app with location detection, a seven-day forecast, and weather alerts.</p>
+            <div class="project-tech"><span>JavaScript</span><span>OpenWeather API</span><span>CSS3</span><span>PWA</span></div>
           </div>
-        </div>
-
-        <!-- Project 4 -->
-        <div class="project-card animate-on-scroll">
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Portfolio Website" />
-            <div class="project-overlay">
-              <span class="project-tag">Portfolio</span>
-              <span class="project-tag">Responsive</span>
-            </div>
-          </div>
+        </article>
+        <article class="project-card animate-on-scroll" data-category="frontend fullstack">
+          <div class="project-preview" aria-hidden="true"><span><i class="fas fa-list-check" aria-hidden="true"></i> Tasks / Productivity</span></div>
           <div class="project-content">
-            <h3>Creative Portfolio Website</h3>
-            <p>Modern portfolio with 3D animations, dark/light theme, and interactive UI elements.</p>
-            <div class="project-tech">
-              <span>HTML5</span>
-              <span>CSS3</span>
-              <span>GSAP</span>
-              <span>JavaScript</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
-              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 5 -->
-        <div class="project-card animate-on-scroll">
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Task Manager" />
-            <div class="project-overlay">
-              <span class="project-tag">Productivity</span>
-              <span class="project-tag">CRUD</span>
-            </div>
-          </div>
-          <div class="project-content">
+            <span class="project-tag">Productivity application</span>
             <h3>Advanced Task Manager</h3>
-            <p>Feature-rich task management application with drag-drop, reminders, and team collaboration.</p>
-            <div class="project-tech">
-              <span>React</span>
-              <span>Redux</span>
-              <span>Express</span>
-              <span>PostgreSQL</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
-              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            </div>
+            <p>A feature-rich task manager with drag-and-drop organization, reminders, and team collaboration.</p>
+            <div class="project-tech"><span>React</span><span>Redux</span><span>Express</span><span>PostgreSQL</span></div>
           </div>
-        </div>
-
-        <!-- Project 6 -->
-        <div class="project-card animate-on-scroll">
-          <div class="project-image">
-            <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Chat Application" />
-            <div class="project-overlay">
-              <span class="project-tag">Real-time</span>
-              <span class="project-tag">Socket.io</span>
-            </div>
-          </div>
+        </article>
+        <article class="project-card animate-on-scroll" data-category="frontend fullstack">
+          <div class="project-preview" aria-hidden="true"><span><i class="fas fa-comments" aria-hidden="true"></i> Chat / Real-time</span></div>
           <div class="project-content">
-            <h3>Real-time Chat Application</h3>
-            <p>Instant messaging app with user authentication, file sharing, and group chat functionality.</p>
-            <div class="project-tech">
-              <span>Socket.io</span>
-              <span>React</span>
-              <span>Node.js</span>
-              <span>MongoDB</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
-              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            </div>
+            <span class="project-tag">Real-time application</span>
+            <h3>Real-Time Chat Application</h3>
+            <p>An instant messaging app with user authentication, file sharing, and group conversations.</p>
+            <div class="project-tech"><span>Socket.io</span><span>React</span><span>Node.js</span><span>MongoDB</span></div>
           </div>
-        </div>
+        </article>
+        <article class="project-card animate-on-scroll" data-category="frontend uiux">
+          <div class="project-preview" aria-hidden="true"><span><i class="fas fa-map-location-dot" aria-hidden="true"></i> Travel / Planner</span></div>
+          <div class="project-content">
+            <span class="project-tag">Concept project</span>
+            <h3>Smart Travel Planner</h3>
+            <p>A travel planning concept for organizing destinations, building itineraries, and keeping trip details in one place.</p>
+            <div class="project-tech"><span>React</span><span>Maps API</span><span>CSS3</span><span>Responsive UI</span></div>
+          </div>
+        </article>
+        <article class="project-card animate-on-scroll" data-category="frontend fullstack">
+          <div class="project-preview" aria-hidden="true"><span><i class="fas fa-graduation-cap" aria-hidden="true"></i> Learning / Platform</span></div>
+          <div class="project-content">
+            <span class="project-tag">Concept project</span>
+            <h3>Learning Management Platform</h3>
+            <p>An online learning concept with course discovery, lesson progress tracking, and a focused student dashboard.</p>
+            <div class="project-tech"><span>Next.js</span><span>TypeScript</span><span>Node.js</span><span>PostgreSQL</span></div>
+          </div>
+        </article>
       </div>
-      
-      <div class="text-center mt-4">
-        <a href="#" class="btn secondary animate-on-scroll">
-          <i class="fab fa-github"></i> View All Projects
-        </a>
-      </div>
+      <p class="text-center mt-4"><a class="btn secondary" href="https://github.com/Prabesh-tech" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> More on GitHub</a></p>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section">
-      <h2 class="section-title animate-on-scroll">My Services</h2>
-      <p class="section-subtitle animate-on-scroll">Comprehensive digital solutions tailored to your needs</p>
-      
+    <section id="services" class="section" tabindex="-1" aria-labelledby="servicesTitle">
+      <p class="section-kicker">05 / What I can help with</p>
+      <h2 class="section-title" id="servicesTitle">Design-minded development</h2>
+      <p class="section-subtitle">Digital services spanning web development, design, mobile, and application infrastructure.</p>
       <div class="services-grid">
-        <div class="service-card animate-on-scroll">
-          <div class="service-icon">
-            <i class="fas fa-code"></i>
-          </div>
-          <h3>Web Development</h3>
-          <p>Responsive, modern websites using latest technologies and best practices. From concept to deployment.</p>
-          <ul class="service-features">
-            <li><i class="fas fa-check"></i> Responsive Design</li>
-            <li><i class="fas fa-check"></i> Performance Optimized</li>
-            <li><i class="fas fa-check"></i> SEO Friendly</li>
-            <li><i class="fas fa-check"></i> Cross-browser</li>
-          </ul>
-        </div>
-
-        <div class="service-card animate-on-scroll">
-          <div class="service-icon">
-            <i class="fas fa-paint-brush"></i>
-          </div>
-          <h3>UI/UX Design</h3>
-          <p>Intuitive and beautiful user interfaces focusing on usability, accessibility, and visual appeal.</p>
-          <ul class="service-features">
-            <li><i class="fas fa-check"></i> User-centered Design</li>
-            <li><i class="fas fa-check"></i> Prototyping</li>
-            <li><i class="fas fa-check"></i> Wireframing</li>
-            <li><i class="fas fa-check"></i> Design Systems</li>
-          </ul>
-        </div>
-
-        <div class="service-card animate-on-scroll">
-          <div class="service-icon">
-            <i class="fas fa-mobile-alt"></i>
-          </div>
-          <h3>Mobile Development</h3>
-          <p>Cross-platform mobile applications for iOS and Android with native performance and user experience.</p>
-          <ul class="service-features">
-            <li><i class="fas fa-check"></i> React Native</li>
-            <li><i class="fas fa-check"></i> PWA</li>
-            <li><i class="fas fa-check"></i> App Store Ready</li>
-            <li><i class="fas fa-check"></i> Offline Support</li>
-          </ul>
-        </div>
-
-        <div class="service-card animate-on-scroll">
-          <div class="service-icon">
-            <i class="fas fa-rocket"></i>
-          </div>
-          <h3>Performance Optimization</h3>
-          <p>Optimizing websites and applications for speed, scalability, and reliability under any conditions.</p>
-          <ul class="service-features">
-            <li><i class="fas fa-check"></i> Fast Loading</li>
-            <li><i class="fas fa-check"></i> Scalable Architecture</li>
-            <li><i class="fas fa-check"></i> Code Splitting</li>
-            <li><i class="fas fa-check"></i> Caching Strategies</li>
-          </ul>
-        </div>
-
-        <div class="service-card animate-on-scroll">
-          <div class="service-icon">
-            <i class="fas fa-shopping-cart"></i>
-          </div>
-          <h3>E-commerce Solutions</h3>
-          <p>Secure and efficient e-commerce platforms that drive sales and provide excellent shopping experiences.</p>
-          <ul class="service-features">
-            <li><i class="fas fa-check"></i> Payment Integration</li>
-            <li><i class="fas fa-check"></i> Inventory Management</li>
-            <li><i class="fas fa-check"></i> Analytics Dashboard</li>
-            <li><i class="fas fa-check"></i> Security</li>
-          </ul>
-        </div>
-
-        <div class="service-card animate-on-scroll">
-          <div class="service-icon">
-            <i class="fas fa-cogs"></i>
-          </div>
-          <h3>API Development</h3>
-          <p>Robust and scalable APIs that power applications with proper documentation and testing.</p>
-          <ul class="service-features">
-            <li><i class="fas fa-check"></i> RESTful APIs</li>
-            <li><i class="fas fa-check"></i> GraphQL</li>
-            <li><i class="fas fa-check"></i> Authentication</li>
-            <li><i class="fas fa-check"></i> Documentation</li>
-          </ul>
-        </div>
+        <article class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></div><h3>Web development</h3><p>Responsive, modern websites built with current technologies and practical web standards.</p></article>
+        <article class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-pen-ruler" aria-hidden="true"></i></div><h3>UI/UX design</h3><p>Intuitive interfaces focused on usability, accessibility, and visual clarity.</p></article>
+        <article class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-mobile-screen-button" aria-hidden="true"></i></div><h3>Mobile development</h3><p>Cross-platform mobile experiences designed for responsive and reliable use.</p></article>
+        <article class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-gauge-high" aria-hidden="true"></i></div><h3>Performance optimization</h3><p>Improving application speed, scalability, and reliability through considered implementation.</p></article>
+        <article class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-cart-shopping" aria-hidden="true"></i></div><h3>E-commerce solutions</h3><p>Online shopping experiences with product, inventory, payment, and security considerations.</p></article>
+        <article class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-diagram-project" aria-hidden="true"></i></div><h3>API development</h3><p>Documented APIs designed to connect application services and client interfaces.</p></article>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-      <h2 class="section-title animate-on-scroll">Get In Touch</h2>
-      <p class="section-subtitle animate-on-scroll">Let's collaborate and talk about exciting projects or new opportunities!</p>
-      
-      <div class="content-box contact-container animate-on-scroll">
+    <section id="contact" class="section" tabindex="-1" aria-labelledby="contactTitle">
+      <p class="section-kicker">06 / Contact</p>
+      <h2 class="section-title" id="contactTitle">Let's build something together.</h2>
+      <p class="section-subtitle">Have a project or opportunity in mind? Send a note and let's talk.</p>
+      <div class="content-box contact-container">
         <div class="contact-info">
           <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <div>
-              <h4>Email</h4>
-              <p id="emailText">prabeshkafle363@gmail.com</p>
-              <button class="copy-btn" onclick="copyEmail()">
-                <i class="fas fa-copy"></i> Copy
-              </button>
-            </div>
+            <div class="contact-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+            <div><h4>Email</h4><p><a id="emailText" href="mailto:prabeshkafle363@gmail.com">prabeshkafle363@gmail.com</a></p><button class="copy-btn" id="copyEmail" type="button"><i class="fas fa-copy" aria-hidden="true"></i> Copy email</button></div>
           </div>
-          
           <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-phone-alt"></i>
-            </div>
-            <div>
-              <h4>Phone</h4>
-              <p>+977-9849358446</p>
-            </div>
+            <div class="contact-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
+            <div><h4>Phone</h4><p><a href="tel:+9779849358446">+977-9849358446</a></p></div>
           </div>
-          
           <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div>
-              <h4>Location</h4>
-              <p>Kathmandu, Nepal</p>
-            </div>
+            <div class="contact-icon"><i class="fas fa-location-dot" aria-hidden="true"></i></div>
+            <div><h4>Location</h4><p>Kathmandu, Nepal</p></div>
           </div>
-          
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-clock"></i>
-            </div>
-            <div>
-              <h4>Availability</h4>
-              <p>Available for freelance work</p>
-              <p class="availability-status"><i class="fas fa-circle"></i> Online Now</p>
-            </div>
-          </div>
-          
-          <div class="contact-social">
-            <h4>Follow Me</h4>
-            <div class="social-icons">
-              <a href="https://github.com/Prabesh-tech" target="_blank"><i class="fab fa-github"></i></a>
-              <a href="https://linkedin.com/in/prabesh-kafle45" target="_blank"><i class="fab fa-linkedin"></i></a>
-              <a href="https://discord.com/users/prabesh366_69355" target="_blank"><i class="fab fa-discord"></i></a>
-              <a href="https://www.instagram.com/prabesh_kafle3" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>
-          </div>
+          <div class="contact-social"><h4>Connect</h4><div class="social-icons">
+            <a href="https://github.com/Prabesh-tech" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-icon"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="https://linkedin.com/in/prabesh-kafle45" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/prabesh_kafle3" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://discord.com/users/prabesh366_69355" target="_blank" rel="noopener noreferrer" aria-label="Discord" class="social-icon"><i class="fab fa-discord" aria-hidden="true"></i></a>
+            <a href="viber://chat?number=%2B9779849358446" aria-label="Chat on Viber" class="social-icon"><i class="fab fa-viber" aria-hidden="true"></i></a>
+          </div></div>
         </div>
-        
         <div class="contact-form">
-          <form id="contactForm">
-            <div class="form-group">
-              <input type="text" id="name" name="name" placeholder="Your Name" required />
-              <label for="name">Name</label>
-            </div>
-            
-            <div class="form-group">
-              <input type="email" id="email" name="email" placeholder="Your Email" required />
-              <label for="email">Email</label>
-            </div>
-            
-            <div class="form-group">
-              <input type="text" id="subject" name="subject" placeholder="Subject" required />
-              <label for="subject">Subject</label>
-            </div>
-            
-            <div class="form-group">
-              <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-              <label for="message">Message</label>
-            </div>
-            
-            <button type="submit" class="btn primary">
-              <i class="fas fa-paper-plane"></i> Send Message
-            </button>
-            
-            <div id="formStatus"></div>
+          <form id="contactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="post">
+            <div class="form-group"><input type="text" id="name" name="name" placeholder=" " autocomplete="name" required><label for="name">Name</label></div>
+            <div class="form-group"><input type="email" id="email" name="email" placeholder=" " autocomplete="email" required><label for="email">Email</label></div>
+            <div class="form-group"><input type="text" id="subject" name="subject" placeholder=" " required><label for="subject">Subject</label></div>
+            <div class="form-group"><textarea id="message" name="message" placeholder=" " rows="5" required></textarea><label for="message">Message</label></div>
+            <div class="form-honeypot" aria-hidden="true"><label for="website">Leave this field empty</label><input id="website" type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
+            <button type="submit" class="btn primary"><i class="fas fa-paper-plane" aria-hidden="true"></i> Send message</button>
+            <p id="formStatus" role="status" aria-live="polite"></p>
           </form>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
-      <div class="footer-logo">
-        <a href="#home" class="logo">
-          <i class="fas fa-globe"></i> Prabesh.dev
-        </a>
-        <p>Building the future, one line of code at a time.</p>
-      </div>
-      
+      <div class="footer-logo"><a href="#home" class="logo" aria-label="Prabesh, home"><img class="logo-image" src="assets/icons/prabesh-logo.png" alt=""></a><p>Thoughtful interfaces, built for the web.</p></div>
       <div class="footer-links">
-        <div class="footer-column">
-          <h4>Quick Links</h4>
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#services">Services</a>
-          <a href="#contact">Contact</a>
-        </div>
-        
-        <div class="footer-column">
-          <h4>Services</h4>
-          <a href="#services">Web Development</a>
-          <a href="#services">UI/UX Design</a>
-          <a href="#services">Mobile Apps</a>
-          <a href="#services">E-commerce</a>
-        </div>
-        
-        <div class="footer-column">
-          <h4>Connect</h4>
-          <a href="https://github.com/Prabesh-tech" target="_blank">GitHub</a>
-          <a href="https://linkedin.com/in/prabesh-kafle45" target="_blank">LinkedIn</a>
-          <a href="https://discord.com/users/prabesh366_69355" target="_blank">Discord</a>
-          <a href="mailto:prabeshkafle363@gmail.com">Email</a>
-        </div>
+        <div class="footer-column"><h4>Explore</h4><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
+        <div class="footer-column"><h4>Elsewhere</h4><a href="https://github.com/Prabesh-tech" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://linkedin.com/in/prabesh-kafle45" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="mailto:prabeshkafle363@gmail.com">Email</a></div>
       </div>
     </div>
-    
-    <div class="footer-bottom">
-      <p>&copy; <span id="currentYear"></span> Prabesh Kafle. All rights reserved. | Portfolio v2.0</p>
-      <p>Made with <i class="fas fa-heart" style="color: #ff007f;"></i> in Kathmandu, Nepal</p>
-    </div>
+    <div class="footer-bottom"><p>&copy; <span id="currentYear">2026</span> Prabesh Kafle. All rights reserved.</p></div>
   </footer>
-
-  <!-- Back to Top Button -->
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">
-    <i class="fas fa-arrow-up"></i>
+  <nav class="quick-contact" aria-label="Quick contact">
+    <a class="quick-contact__link quick-contact__link--contact" href="#contact" aria-label="Contact me" title="Contact me">
+      <i class="fas fa-envelope" aria-hidden="true"></i><span>Contact Me</span>
+    </a>
+    <a class="quick-contact__link quick-contact__link--whatsapp" href="https://wa.me/9779849358446" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+      <i class="fab fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span>
+    </a>
+  </nav>
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+    <svg class="back-to-top__ring" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="22"></circle></svg>
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
   </button>
-
-  <!-- Notification Container -->   
-  <div id="notificationContainer"></div>
-
-  <!-- Scripts -->
-  <script src="script.js"></script>
+  <div id="notificationContainer" aria-live="polite" aria-atomic="true"></div>
 </body>
 </html>

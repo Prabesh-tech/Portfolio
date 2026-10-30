@@ -1,0 +1,17 @@
+{
+  "name": "Prabesh Kafle — Portfolio",
+  "short_name": "Prabesh",
+  "description": "Frontend developer and UI/UX designer in Kathmandu, Nepal.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "/assets/icons/prabesh-symbol.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
